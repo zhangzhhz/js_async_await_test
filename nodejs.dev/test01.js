@@ -1,4 +1,6 @@
-const fetch = require('node-fetch');
+
+// node-fetch v3.5 onwards is ESM-only package and cannot be imported using `require`.
+(async () => { const fetch = await import('node-fetch'); })()
 
 // async makes a function return a promise
 const aFunction = async () => {
@@ -6,7 +8,7 @@ const aFunction = async () => {
 }
 
 aFunction().then(console.log) // This will alert 'test'
-console.log("This will print first first.")
+console.log("This will print first.")
 
 const getFirstPostData = () => {
   return fetch('https://jsonplaceholder.typicode.com/posts') // get post list
@@ -28,5 +30,5 @@ const getFirstPostData2 = async () => {
   return postData;
 }
 
-(async () => {console.log(`postData = [${JSON.stringify(await getFirstPostData2(), null, 4)}]`)})();
+(async () => { console.log(`postData = [${JSON.stringify(await getFirstPostData2(), null, 4)}]`) })();
 
