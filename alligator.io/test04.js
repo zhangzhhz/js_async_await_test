@@ -1,9 +1,9 @@
-async function hello() {
+async function hello() { // `async` turns the return value into a promise.
   return 'Hello Alligator';
 }
 
-// const b = hello();
-// console.log(b);
+const b = hello();
+console.log(b);
 
 (() => {
   const b = hello();
